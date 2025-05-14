@@ -1,16 +1,16 @@
 # Maintainer: 7Ji <pugokughin@gmail.com>
 
 pkgname=uboot-amlogic-ophub
-pkgver=20230202
+pkgver=20240412
 pkgrel=1
-pkgdesc="Pre-built u-boot.bin payloads, from ophub's Armbian repo"
+pkgdesc="Pre-built u-boot.bin payloads, collected by ophub"
 arch=('aarch64')
-url="https://github.com/ophub/amlogic-s9xxx-armbian"
+url="https://github.com/ophub/u-boot"
 license=('GPL2')
 source=()
-_ophub_commit='932c9b9cdaf5107a649dd39197c26303e50bd51c'
+_ophub_commit='8941b79b2496a18a59140cd6934a890154792d2c'
 source=($(
-  url_prefix="${url}/raw/${_ophub_commit}/build-armbian/u-boot/amlogic/overload/u-boot-"
+  url_prefix="${url}/raw/${_ophub_commit}/u-boot/amlogic/overload/u-boot-"
   for _uboot_device in \
     e900v22c \
     gtking \
@@ -23,6 +23,8 @@ source=($(
     r3300l \
     s905 \
     s905x2-s922 \
+    s905x3 \
+    s905x-s905lb \
     s905x-s912 \
     sei510 \
     sei610 \
@@ -33,7 +35,8 @@ source=($(
     ugoos-x3 \
     x96max \
     x96maxplus \
-    zyxq
+    zyxq \
+    ;
   do
     echo "${url_prefix}${_uboot_device}.bin"
   done
@@ -50,8 +53,10 @@ sha256sums=(
   'c3b2065356e61cec05320e68010135a315e7d89d0e6d6dd212a55a28cf90f7e8'
   '27874155c05d4c8252cf443a78c84867d071960dff0d66dbee5c8f19a3d30737'
   'f69f6241224f72e6942119dae0d026154089cdff8442d5a4c93de4d8bc3e69b9'
-  'c3a3662453cbbfcd7a11e2c829017b667e601708f2f5c85543f1727249787a74'
+  '877c6f7079ded3ccf05d79d333e75de7c3a374902a788c6b07785a52b9205702'
+  '3b220c37c28d726221a949463a22cd967af4c50ee13cf7833ad929865bffa4b7'
   '3becd7d97afaa7fbcb683eb4c28221f282bf73b74d71138ac6be768611f8e11f'
+  '207cdbe16145bea4602d62cde4c5e1083f30c5742beef714bec259d15c94545c'
   '5ff0be52537bd01ab6aa772e0ee284ab1e1f47f43cbc08da2a6c9982ef1df379'
   'ddf6ff930c13c03528b64a738de1126f811f6802c5096495ef83f6c07c4986d1'
   'c2984db61bebf94c13a9d458cb77fdfb6b2a017516862fbbad159f8a480880d0'
